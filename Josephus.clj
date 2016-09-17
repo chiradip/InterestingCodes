@@ -11,7 +11,7 @@
   (def lop (range 0 num))
   (isolation (list) lop skip))
 
-;; The below method is most elegant - 
+;; The below method is most elegant - and complete in itself for whole josephus problem 
 (defn find-last-survivor [num skip]
   (loop [x (range 0 num)]
     (if (= (count x) 1) x
