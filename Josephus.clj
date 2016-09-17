@@ -13,7 +13,6 @@
 
 ;; The below method is most elegant - 
 (defn find-last-survivor [num skip]
-  (def l (range 0 num))
-  (loop [x l]
+  (loop [x (range 0 num)]
     (if (= (count x) 1) x
      (recur (take (- (count x) 1) (drop skip (cycle x)))))))
