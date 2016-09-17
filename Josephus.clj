@@ -10,3 +10,10 @@
 (defn find-survivor [num skip]
   (def lop (range 0 num))
   (isolation (list) lop skip))
+
+;; The below method is most elegant - 
+(defn find-last-survivor [num skip]
+  (def l (range 0 num))
+  (loop [x l]
+    (if (= (count x) 1) x
+     (recur (take (- (count x) 1) (drop skip (cycle x)))))))
