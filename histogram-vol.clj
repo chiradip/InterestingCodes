@@ -1,0 +1,36 @@
+(defn histogram-volume [hg]
+  (loop [histogram hg volume 0]
+    (println histogram)
+    (println (str "volume: " volume))
+    (if (<= (count histogram) 1) volume
+      (do
+        (def indexed (map-indexed (fn [idx itm] [idx itm]) histogram))
+        (println (str "indexed: " indexed))
+        (def sorted (sort-by #(second %) > indexed))
+        (println (str "Sorted: " sorted))
+        (def index-of-highest (first (first sorted)))
+        (println (str "index of highest: " index-of-highest))
+        (def index-of-2nd-highest (first (second sorted)))
+        (println (str "index of 2nd highest: " index-of-2nd-highest))
+        (def elimination-start-index (min index-of-2nd-highest index-of-highest))
+        (println (str "elimination-start-index: " elimination-start-index))
+        (def elimination-end-index (max index-of-2nd-highest index-of-highest))
+        (println (str "elimination-end-index: " elimination-end-index))
+        (def second-height (second (second sorted)))
+        (println (str "second-height: " second-height))
+        (def distance-1st-2nd (- elimination-end-index elimination-start-index))
+        (println (str "distance-1st-2nd: " distance-1st-2nd))
+        (def elements-between-first-second
+          (drop (inc elimination-start-index) (take elimination-end-index histogram)))
+        (println (str "elements-between-first-second: " elements-between-first-second))
+        (def volume-of-the-eliminated-bars (reduce + elements-between-first-second))
+        (println (str "volume-of-the-eliminated-bars: " volume-of-the-eliminated-bars))
+        (def total-volume-between-2-highest (* second-height (dec distance-1st-2nd)))
+        (println (str "total-volume-between-2-highest: " total-volume-between-2-highest))
+        (def resulting-volume-between-2-highest (- total-volume-between-2-highest
+                                                  volume-of-the-eliminated-bars))
+        (println (str "resulting-volume-between-2-highest: " resulting-volume-between-2-highest))
+        (def modified-histogram (concat (take elimination-start-index histogram)
+                                        (drop elimination-end-index histogram)))
+        (println (str "modified-histogram: " modified-histogram))
+        (recur modified-histogram (+ volume resulting-volume-between-2-highest))))))
