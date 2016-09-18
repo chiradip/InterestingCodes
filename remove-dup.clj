@@ -10,3 +10,9 @@
 <SHELL>  (reduce (fn [a e] (if (some #(= e %) a) a (conj a e))) [] "abracadabra")
 <RESULT> [\a \b \r \c \d]
 
+;; A little bit easier to comprehend (possibly) version 
+
+(defn rem-dup [myword]
+  (loop [word myword i 0]
+    (if (>= i (count word)) word
+    (recur (concat (filter #(not (= (first word) %)) (rest word)) (take 1 word)) (inc i)))))
