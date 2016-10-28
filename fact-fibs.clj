@@ -26,3 +26,5 @@
 
 (second (reduce (fn [[a b] _] [b (+ a b)]) [0 1] (range 0 10)))
 
+(defn fib-reduce [num]
+  (second (reduce (fn [[a b] _] [b (+ a b)]) [0 1] (range 0 num))))
