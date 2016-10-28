@@ -20,3 +20,9 @@
       (recur (dec x) curr-fib (+ p-fib curr-fib)
             (if (not (nil? store)) (cons p-fib l) nil)) (if (not (nil? store))
                   (cons p-fib l) p-fib))))
+
+;; Using clojure reduce function
+(reduce (fn [[a b] _] [b (+ a b)]) [0 1] (range 0 10))
+
+(second (reduce (fn [[a b] _] [b (+ a b)]) [0 1] (range 0 10)))
+
