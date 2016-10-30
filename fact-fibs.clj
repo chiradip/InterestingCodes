@@ -1,3 +1,7 @@
+(defn fact[x] 
+  (if (<= x 2) x 
+    (* x (fact (dec x)))))
+
 (defn fact[x]
   (loop [current x next (dec x) total 1]
     (if (> next 0)
