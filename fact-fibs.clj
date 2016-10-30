@@ -2,6 +2,12 @@
   (if (<= x 2) x 
     (* x (fact (dec x)))))
 
+(defn fact[x] 
+  (cond 
+    (< x 0) (throw (Exception. "factorial computation is limited for non-negative numbers only"))
+    (<= x 2) x 
+    :else (* x (fact (dec x)))))
+
 (defn fact[x]
   (loop [current x next (dec x) total 1]
     (if (> next 0)
