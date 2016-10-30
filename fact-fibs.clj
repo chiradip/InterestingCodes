@@ -34,7 +34,7 @@
       (cond 
         (< n 0) (throw (Exception. "Fibonacci is applicable for non-negative numbers only"))
         (<= n 1) n
-        :else (+ (fib (- n 2)) (fib (- n 1)))))))
+        :else (+ (fib (- n 1)) (fib (- n 2)))))))
 
 ;; This one will produce a collection of fibonacci series which can be used to do other opertions on the series 
 ;; without computing them individually all over again just provide anything as the second argument and it will produce
