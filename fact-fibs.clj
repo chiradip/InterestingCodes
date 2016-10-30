@@ -28,7 +28,6 @@
       (recur (dec x) curr-fib (+ p-fib curr-fib)) p-fib))))
 
 ;; fibonacci with memoization 
-
 (def fib-mem
   (memoize 
     (fn [n] 
