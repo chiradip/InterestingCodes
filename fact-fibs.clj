@@ -34,3 +34,7 @@
 
 (map (fn [element] (inc element)) [1 2 3])
 (2 3 4)
+
+(time (fib 50))
+(time (fib-recur 50))
+(time (fin-reduce 50))
