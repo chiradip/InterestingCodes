@@ -8,6 +8,14 @@
     (<= x 2) x 
     :else (* x (fact (dec x)))))
 
+(defn fact-recur[n]
+  (loop [x n fact 1]
+    (cond 
+      (< x 0) (throw (Exception. "factorial computation is limited for non-negative numbers only"))
+      (= x 0) 0
+      (= x 1) fact
+      :else (recur (dec x) (* fact x)))))
+
 (defn fact[x]
   (loop [current x next (dec x) total 1]
     (if (> next 0)
