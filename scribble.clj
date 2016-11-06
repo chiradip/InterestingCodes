@@ -33,3 +33,5 @@
   "reverses a string"
   [string]
   (clojure.string/reverse string))                             
+
+(compile (symbol "my-app.core"))                             
