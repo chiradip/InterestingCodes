@@ -1,2 +1,2 @@
 
-lein new app my-app
+ (clojure.string/split "I love my pizaa"  #" ") 
