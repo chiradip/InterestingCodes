@@ -43,4 +43,9 @@
 
 (deftest a-test
   (testing "FIXME, I fail."
-    (is (= 0 1))))                             
+    (is (= 0 1)))) 
+                             
+(deftest reverse-test
+  (testing "my-reverse function."
+    (is (= "ym" (my-reverse "my")))
+    (is (not (= "ymm" (my-reverse "my"))))))                             
