@@ -8,3 +8,5 @@
 (print my-file-content)
 
 (count (clojure.string/split my-file-content #"\n"))
+
+(count (clojure.string/split my-file-content #”\n+"))
