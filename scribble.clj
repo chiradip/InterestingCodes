@@ -34,4 +34,13 @@
   [string]
   (clojure.string/reverse string))                             
 
-(compile (symbol "my-app.core"))                             
+(compile (symbol "my-app.core"))           
+
+
+(ns my-app.core-test
+  (:require [clojure.test :refer :all]
+            [my-app.core :refer :all]))
+
+(deftest a-test
+  (testing "FIXME, I fail."
+    (is (= 0 1))))                             
