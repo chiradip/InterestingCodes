@@ -4,3 +4,5 @@
 (slurp “myfile.txt”) 
 
 (def my-file-content (slurp "myfile.txt"))
+
+(print my-file-content)
