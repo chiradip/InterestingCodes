@@ -28,3 +28,8 @@
   :main ^:skip-aot my-app.core
   :target-path "target/%s"
   :profiles {:uberjar {:aot :all}})
+                             
+(defn my-reverse
+  "reverses a string"
+  [string]
+  (clojure.string/reverse string))                             
