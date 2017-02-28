@@ -8,4 +8,4 @@
 (defn sort-bubble [stack]
 	(let [newstack (into [] (bubble [] stack))]
 			(if (= newstack stack) stack
-			(recur newstack))))
+			(recur newstack)))) 
